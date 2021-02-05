@@ -1,0 +1,23 @@
+
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: blog
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    ingress.kubernetes.io/ssl-temporary-redirect: "false"
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/http2-push-preload: "true"
+spec:
+  tls:
+    - secretName: tls-entegral
+
+  rules:
+    - host: entegral.wjonas.com
+      http:
+        paths:
+          - path: /
+            backend:
+              # This assumes http-svc exists and routes to healthy endpoints
+              serviceName: entegral
+              servicePort: 80

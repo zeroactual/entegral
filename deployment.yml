@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: entegral
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  selector:
+    matchLabels:
+      app: blog
+  template:
+    metadata:
+      labels:
+        app: blog
+    spec:
+      containers:
+        - name: entegral
+          image: gcr.io/hydra-1305/entegral-web:TAG
+          ports:
+            - containerPort: 5000
+          resources:
+            requests:
+              cpu: 100m
+            limits:
+              cpu: 100m
