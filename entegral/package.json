@@ -8,22 +8,23 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "generate": "node ./src/server/generate.js > ./src/server/database.json",
-    "server": "json-server --watch ./src/server/database.json"
+    "generate": "node ./server/generate.js > ./server/database.json",
+    "server": "json-server --watch ./server/database.json"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~11.1.2",
+    "@angular/cdk": "^11.1.2",
     "@angular/common": "~11.1.2",
     "@angular/compiler": "~11.1.2",
     "@angular/core": "~11.1.2",
     "@angular/forms": "~11.1.2",
+    "@angular/material": "^11.1.2",
     "@angular/platform-browser": "~11.1.2",
     "@angular/platform-browser-dynamic": "~11.1.2",
     "@angular/router": "~11.1.2",
     "faker": "^5.3.1",
     "json-server": "^0.16.3",
-    "ng": "0.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
