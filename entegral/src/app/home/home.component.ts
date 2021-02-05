@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
 
-    this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any[])=>{
+    this.dataService.getProducts().pipe(takeUntil(this.destroy$)).subscribe((data: any[])=>{
       console.log(data);
       this.products = data;
     })

@@ -27,7 +27,11 @@ export class DataService {
     return throwError(errorMessage);
   }
 
-  public sendGetRequest(){
+  public getProducts(){
     return this.httpClient.get(this.REST_API_SERVER).pipe(retry(3), catchError(this.handleError));
+  }
+
+  public getProduct(id){
+    return this.httpClient.get(this.REST_API_SERVER + "/" + id).pipe(retry(3), catchError(this.handleError));
   }
 }
